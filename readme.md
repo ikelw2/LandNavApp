@@ -6,9 +6,9 @@ This is one of my earliest programming examples released on a public platform - 
 Developing in Monkey C on early-generation hardware involved severe memory overhead. While primitives in languages like C cost 2 to 4 bytes, Monkey C consumed 20 to 24 bytes of heap memory per variable due to dynamic "Value" object references. This overhead scaled dramatically with data structures: two arrays of 15 floats each expanded from 120 bytes to 800–900 bytes (about 5% of the total budget) because the virtual machine allocated distinct wrappers for arrays, element pointers, and individual runtime wrappers for every float. Declaring just 50 global variables consumed roughly 1 KB (of the 16 KB total hardware budget) before processing even began.
 
 To survive these constraints, the project relied on aggressive architectural adaptations:
-* **Flattened Structures & Bit-Packing:** Abandoned clean object-oriented designs, recycled global variables, and packed multiple states into single integers using bitwise operators.
-* **Single-File Condensation:** Kept symbol tables lean by avoiding multi-file or multi-class architectures, using shorter variable and function names to prevent runtime symbol table crashes.
-* **Inline Optimization:** Handled geographic coordinate math arrays under strict limits, hardcoded as many string and math constants inline instead of memory-intensive resource tables.
+* **Flattened Structures & Bit-Packing:** Abandoned object-oriented for procedural designs, recycled global variables, and packed multiple states into single integers using bitwise operators.
+* **Single-File Condensation:** Kept symbol tables lean by avoiding multi-file or multi-class architectures, using shorter variable and function names to prevent running up the size of symbol tables.
+* **Inline Optimization:** Handled geographic coordinate math arrays under strict limits, hardcoded as many string and math constants inline instead of memory-intensive resource tables - except when implementing app settings when resource tables were required.
 
 Ultimately, these architectural adaptations maximized performance while working within strict memory and processing limits. Rather than a reflection of poor coding practices, the condensed layout and raw structures of this app serve as a technical time capsule, showcasing what was once required to deliver a feature-rich, mathematical navigation utility within the tightest hardware boundaries of early wearable tech.
 

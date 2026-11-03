@@ -1,7 +1,7 @@
 Hello from 2026:
 -
 
-This is one of my earliest programming projects published for a public platform within the Garmin Connect IQ ecosystem (1.x, 2.x), developed initially for a Garmin Forerunner 630 device that restricted this datafield to a maximum of just 16 KB (16,384 bytes). 
+This is one of my earliest programming examples released on a public platform - the first generation of Garmin Connect IQ devices. I developed it initially for my Garmin Forerunner 630 GPS watch, which meant this datafield was limited to a maximum of just 16 KB (16,384 bytes). 
 
 Developing in Monkey C on early-generation hardware involved severe memory overhead. While primitives in languages like C cost 2 to 4 bytes, Monkey C consumed 20 to 24 bytes of heap memory per variable due to dynamic "Value" object references. This overhead scaled dramatically with data structures: two arrays of 15 floats each expanded from 120 bytes to 800–900 bytes (about 5% of the total budget) because the virtual machine allocated distinct wrappers for arrays, element pointers, and individual runtime wrappers for every float. Declaring just 50 global variables consumed roughly 1 KB (of the 16 KB total hardware budget) before processing even began.
 
@@ -12,7 +12,7 @@ To survive these constraints, the project relied on aggressive architectural ada
 
 Ultimately, these architectural adaptations maximized performance while working within strict memory and processing limits. Rather than a reflection of poor coding practices, the condensed layout and raw structures of this app serve as a technical time capsule, showcasing what was once required to deliver a feature-rich, mathematical navigation utility within the tightest hardware boundaries of early wearable tech.
 
-
+-Michael W.
 
 ================================================================
 

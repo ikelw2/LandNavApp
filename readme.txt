@@ -1,4 +1,10 @@
+Note from 2026:
+This is one of my earlier programming projects for the Garmin Connect IQ platform. 
 
+Developing for early-generation Connect IQ (1.x, 2.x) came with strict memory and processing limitations that felt more like programming an embedded microcontroller from the 1980s than writing a modern app. I owned a Garmin Forerunner 630, a device that restricted this data field to just 16 KB (16,384 bytes). 
+
+To ensure the complex coordinate math, pace-count math, and polygon boundary randomizations could actually fit, I had to take extreme precautions to minimize memory footprint and execution cycles. Monkey C’s virtual machine carried massive runtime overhead—where declaring a single variable could cost over 20 bytes and expanding code structure bloated the internal symbol tables. In this tightly constrained environment, standard object-oriented design patterns had to be abandoned in favor of raw optimization; even flattening logic and using shorter variable or function names significantly saved precious bytes. This app stands as a time capsule of what it took to squeeze a complex, feature-rich training utility into the earliest days of wearable tech.
+============================================================
 
 LandNav datafield  
 
@@ -56,7 +62,7 @@ Garmin saves GPS tracks to FIT files. If you want to save your LandNav performan
 ===================================================================================
 PART III: CONFIGURING THE SETTINGS
  
-After installing this datafield, you need to configure the settings. Run the Garmin Connect program and sync with your Garmin device. Select 'Connect IQ Apps' -> ('Data Fields') -> 'LandNav' -> '�' or 'Settings': 
+After installing this datafield, you need to configure the settings. Run the Garmin Connect program and sync with your Garmin device. Select 'Connect IQ Apps' -> ('Data Fields') -> 'LandNav' -> '…' or 'Settings': 
 
 The Mode menu determines what the app does. Option 1. Randomize within boundary lets you practice finding points. Enter the park boundary in the Points section, and the app will produce random points within the boundary for you to find. Option 2. Points in random order lets you find pre-selected points. Enter the points, and the app will make you visit them in random order. Option 3. Points in list order has you visit points in order. 
 

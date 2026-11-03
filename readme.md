@@ -1,25 +1,24 @@
 Hello from 2026:
+-
 
-This is one of my earlier programming projects for the Garmin Connect IQ platform. 
+This is one of my earliest programming projects published for a public platform within the Garmin Connect IQ ecosystem (1.x, 2.x), developed initially for a Garmin Forerunner 630 device that restricted this datafield to a maximum of just 16 KB (16,384 bytes). 
 
-Developing for early-generation Connect IQ (1.x, 2.x) came with strict memory and 
-processing limitations that felt more like programming an embedded microcontroller 
-from the 1980s than writing a modern app. I owned a Garmin Forerunner 630, a device 
-that restricted this data field to just 16 KB (16,384 bytes). 
+Developing in Monkey C on early-generation hardware involved severe memory overhead. While primitives in languages like C cost 2 to 4 bytes, Monkey C consumed 20 to 24 bytes of heap memory per variable due to dynamic "Value" object references. This overhead scaled dramatically with data structures: two arrays of 15 floats each expanded from 120 bytes to 800–900 bytes (about 5% of the total budget) because the virtual machine allocated distinct wrappers for arrays, element pointers, and individual runtime wrappers for every float. Declaring just 50 global variables consumed roughly 1 KB (of the 16 KB total hardware budget) before processing even began.
 
-To ensure the complex coordinate math, pace-count math, and polygon boundary 
-randomizations could actually fit, I had to take extreme precautions to minimize 
-memory footprint and execution cycles. Monkey C’s virtual machine carried massive 
-runtime overhead—where declaring a single variable could cost over 20 bytes and 
-expanding code structure bloated the internal symbol tables. In this tightly 
-constrained environment, standard object-oriented design patterns had to be 
-abandoned in favor of raw optimization; even flattening logic and using shorter 
-variable or function names significantly saved precious bytes. This app stands 
-as a time capsule of what it took to squeeze a complex, feature-rich training 
-utility into the earliest days of wearable tech.
+To survive these constraints, the project relied on aggressive architectural adaptations:
+* **Flattened Structures & Bit-Packing:** Abandoned clean object-oriented designs, recycled global variables, and packed multiple states into single integers using bitwise operators.
+* **Single-File Condensation:** Kept symbol tables lean by avoiding multi-file or multi-class architectures, using shorter variable and function names to prevent runtime symbol table crashes.
+* **Inline Optimization:** Handled geographic coordinate math arrays under strict limits, hardcoded as many string and math constants inline instead of memory-intensive resource tables.
+
+Ultimately, these architectural adaptations maximized performance while working within strict memory and processing limits. Rather than a reflection of poor coding practices, the condensed layout and raw structures of this app serve as a technical time capsule, showcasing what was once required to deliver a feature-rich, mathematical navigation utility within the tightest hardware boundaries of early wearable tech.
+
+
 
 ===================================================================================
+
 ===================================================================================
+
+
 Original Readme from 2017
 
 LandNav datafield  
